@@ -54,7 +54,7 @@ html, body {
     padding: 0;
     background: var(--color-bg-body);
     color: var(--color-text-primary);
-    font-family: var(--font-family-base);
+    font-family: var(--font-family-handjet);
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-normal);
     
@@ -96,61 +96,6 @@ header img {
     display: block;     /* optional, removes inline spacing */
 }
 
-/* ====== DIV 1 ====== */
-.div1 {
-    grid-column: 1 / 6;
-    grid-row: 2 / 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 60px;
-    max-height: 60px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.div1 ul {
-    display: flex;
-    width: 100%;           /* fill the div1 width */
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    gap: var(--gap);                /* remove gap to avoid extra space */
-}
-
-.div1 li {
-    flex: 1;               /* each button fills equal space */
-    min-width: 0;           /* allow shrinking if needed */
-}
-
-.div1 li a {
-    display: flex;                     /* flex container */
-    align-items: center;               /* vertical centering */
-    justify-content: center;           /* horizontal centering */
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;            /* includes padding in width */
-    padding: var(--padding-section);   /* now safely inside width */
-    background: var(--color-bg-button);
-    color: var(--color-text-primary);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-base);
-    font-family: var(--font-family-base);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-medium);
-    text-decoration: none;             /* remove underline */
-    cursor: pointer;
-    box-shadow: var(--shadow-soft);
-    transition: all 0.25s ease;
-
-}
-
-.div1 li a:hover {
-    background: var(--color-bg-button-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
-}
-
 /* ====== DIV 2 ====== */
 .div2 {
     grid-column: 1 / 2;
@@ -177,30 +122,36 @@ header img {
     gap: var(--gap);
 }
 
+/* ====== DIV 2 Updated ====== */
 .div2 li {
-    background: var(--color-bg-button);
-    color: var(--color-text-primary);
-    padding: var(--padding-section);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-base);
-    font-family: var(--font-family-base);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-medium);
-    text-align: center;
+    padding: 0; /* remove padding from li so a can handle it */
     cursor: pointer;
     transition: all 0.25s ease;
     box-shadow: var(--shadow-soft);
+    border-radius: var(--radius-base);
+    overflow: hidden; /* ensures a’s hover effects don’t spill */
 }
 
 .div2 li a {
-    color: inherit;          /* use li's text color */
-    text-decoration: none;   /* remove underline */
-    display: block;          /* fill the li */
+    display: flex;                     /* flex container like div1 */
+    align-items: center;               /* vertical centering */
+    justify-content: center;           /* horizontal centering */
     width: 100%;
     height: 100%;
+    padding: var(--padding-section);   /* padding inside the link */
+    background: var(--color-bg-button);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-base);
+    font-family: var(--font-family-handjet);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.25s ease;
 }
 
-.div2 li:hover {
+.div2 li a:hover {
     background: var(--color-bg-button-hover);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.12);
@@ -239,7 +190,85 @@ header img {
     grid-row: 3 / 7;
     border: 1px solid var(--color-border);
     background: var(--color-bg-surface);
+    border-radius: var(--radius-large);
+    padding: calc(var(--padding-section) * 1.5);
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--gap) * 1.5);
+    box-shadow: var(--shadow-soft);
+    overflow-y: auto;
+    color: var(--color-text-primary);
+    font-family: var(--font-family-base);
+}
+
+/* Headings */
+.div3 h2 {
+    font-family: var(--font-family-handjet);
+    font-size: 1.8rem;          /* slightly larger for emphasis */
+    margin-bottom: calc(var(--gap) * 1.2);
+    text-align: center;
+    color: var(--color-text-primary);
+}
+
+.div3 h3 {
+    font-size: 1.4rem;          /* slightly larger for clarity */
+    margin-top: calc(var(--gap) * 1.2);
+    margin-bottom: 0.75rem;
+    color: var(--color-text-secondary);
+}
+
+/* Paragraphs */
+.div3 p {
+    font-size: 1.15rem;          /* larger text for better fill */
+    line-height: 1.7;
+    margin-bottom: calc(var(--gap) * 1.2);
+    color: var(--color-text-primary);
+}
+
+/* Ordered Lists */
+.div3 ol {
+    padding-left: 1.5rem;
+    margin-bottom: calc(var(--gap) * 1.2);
+}
+
+.div3 ol li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+}
+
+/* Unordered Lists */
+.div3 ul {
+    padding-left: 1.5rem;
+    margin-bottom: calc(var(--gap) * 1.2);
+}
+
+.div3 ul li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+    list-style-type: disc;
+}
+
+/* Special Note / Highlight */
+.div3 .info-note {
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    background: rgba(255, 255, 255, 0.1);
+    padding: calc(var(--padding) * 1.2);
+    border-left: 4px solid var(--color-bg-button);
     border-radius: var(--radius-base);
+    margin: auto;
+}
+
+/* Flex container for content balance */
+.div3 .info-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* keeps content top-aligned but fills vertically */
+    height: 100%;
 }
 
 /* ====== FOOTER ====== */
@@ -251,7 +280,7 @@ footer {
     justify-content: flex-end;
     padding: var(--footer-padding);
     background: var(--color-bg-footer);
-    font-family: var(--font-family-base);
+    font-family: var(--font-family-handjet);
     font-size: var(--font-size-footer);
     font-weight: var(--font-weight-normal);
     color: var(--color-text-muted);
